@@ -12,5 +12,6 @@ const firebaseConfig = {
 // Initialize Firebase and Firestore
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+var storage = firebase.app().storage("gs://montestage-327a0.appspot.com");
 
-export default db;
+export { db, storage };

@@ -1,0 +1,28 @@
+.groupWrapper{
+    text-align: center;
+}
+
+.imageContainer{
+    margin:auto;
+    width:70vw;
+    height:200px;
+}
+
+.imageContainer img{
+    height:100%;
+    width:100%;
+}
+
+.videoContainer{
+    margin:auto;
+    width:70vw;
+    height:200px;
+}
+
+.instruments{
+
+}
+
+.invisible{
+    display:none;
+}

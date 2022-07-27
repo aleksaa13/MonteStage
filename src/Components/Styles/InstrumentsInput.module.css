@@ -1,0 +1,20 @@
+.reccomendationsWrapper {
+    position:relative;    
+}
+
+.inputClass{
+    width:200px;
+    position:relative;
+}
+
+ul{
+    list-style:none;
+    padding:10px;
+}
+
+.suggestionClass{
+    width:250px;
+    background-color:white;
+    text-align:center;
+    margin:auto;
+}

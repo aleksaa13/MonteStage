@@ -9,12 +9,27 @@ import Band from "./Components/Band";
 import Header from "./Components/Header";
 import WebFont from "webfontloader";
 import Group from "./Components/Group";
+import Form from "./Components/Form";
 
 function App() {
   const [acoustic, setAcoustic] = useState([]);
   const [vocal_groups, setVocal_groups] = useState([]);
   const [band, setBand] = useState([]);
   const [all, setAll] = useState([]);
+
+  let genres = [
+    "Pop",
+    "Rock",
+    "Blues",
+    "Jazz",
+    "Narodna",
+    "Starogradska",
+    "Metal",
+    "Funk",
+    "Elektronska",
+    "Tehno",
+    "Folk",
+  ];
 
   useEffect(() => {
     fetchData();
@@ -92,6 +107,11 @@ function App() {
                 exact
                 path="/vocal_groups"
                 element={<Vocal groups={[...vocal_groups]} />}
+              ></Route>
+              <Route
+                exact
+                path="/form"
+                element={<Form genres={genres} />}
               ></Route>
             </Routes>
           </div>

@@ -1,4 +1,4 @@
-ul {
+.header ul {
   list-style-type: none;
   display: flex;
   flex-direction: row-reverse;
@@ -166,7 +166,7 @@ ul {
       margin-left: 0;
       padding-left: 0;
     }
-    ul {
+    .header ul {
       flex-direction: column-reverse;
       padding-left: 0;
       margin-right: 0;
@@ -254,7 +254,7 @@ ul {
     .logo {
       margin-right: 5px;
     }
-    ul {
+    .header ul {
       margin-right: 30px;
     }
   }

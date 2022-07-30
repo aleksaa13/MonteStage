@@ -15,20 +15,50 @@ function App() {
   const [acoustic, setAcoustic] = useState([]);
   const [vocal_groups, setVocal_groups] = useState([]);
   const [band, setBand] = useState([]);
+  const [ostalo, setOStalo] = useState([]);
+  const [dj, setDj] = useState([]);
+  const [solo, setSolo] = useState([]);
+  const [instrumental, setInstrumental] = useState([]);
   const [all, setAll] = useState([]);
 
   let genres = [
-    "Pop",
-    "Rock",
+    "Zabavna/Pop",
+    "Rock n Roll",
     "Blues",
     "Jazz",
     "Narodna",
     "Starogradska",
     "Metal",
     "Funk",
-    "Elektronska",
+    "Psytrance",
+    "House",
+    "EDM",
     "Tehno",
     "Folk",
+    "Etno/Izvorna",
+    "Klasična",
+    "Evergreen",
+  ];
+
+  const instruments = [
+    "gitara",
+    "bas gitara",
+    "akustična gitara",
+    "klavijatura",
+    "klavir",
+    "bubanj/perkusije",
+    "violina",
+    "viola",
+    "violončelo",
+    "kahon",
+    "harmonika",
+    "saksofon",
+    "kontrabas",
+    "tambura",
+    "flauta",
+    "truba",
+    "trombon",
+    "mandolina",
   ];
 
   useEffect(() => {
@@ -60,6 +90,18 @@ function App() {
         case "vocal_groups":
           voc.push(item.data());
           return null;
+        case "solo":
+          solo.push(item.data());
+          return null;
+        case "dj":
+          dj.push(item.data());
+          return null;
+        case "instrumental":
+          instrumental.push(item.data());
+          return null;
+        case "ostalo":
+          ostalo.push(item.data());
+          return null;
       }
     });
     setAcoustic([...acc]);
@@ -80,7 +122,6 @@ function App() {
                 path="/acoustic"
                 element={<Acoustic groups={[...acoustic]} />}
               ></Route>
-
               <Route
                 exact
                 path="acoustic/:id"
@@ -91,13 +132,11 @@ function App() {
                 path="band/:id"
                 element={<Group groups={[...band]} />}
               />
-
               <Route
                 exact
                 path="vocal_groups/:id"
                 element={<Group groups={[...vocal_groups]} />}
               />
-
               <Route
                 exact
                 path="/band"
@@ -111,8 +150,45 @@ function App() {
               <Route
                 exact
                 path="/form"
-                element={<Form genres={genres} />}
+                element={<Form genres={genres} instruments={instruments} />}
               ></Route>
+              <Route
+                exact
+                path="/instrumental"
+                element={<Acoustic groups={[...instrumental]} />}
+              ></Route>
+              <Route
+                exact
+                path="instrumental/:id"
+                element={<Group groups={[...instrumental]} />}
+              />
+
+              <Route
+                exact
+                path="/solo"
+                element={<Acoustic groups={[...solo]} />}
+              ></Route>
+              <Route
+                exact
+                path="solo/:id"
+                element={<Group groups={[...solo]} />}
+              />
+              <Route
+                exact
+                path="/dj"
+                element={<Acoustic groups={[...dj]} />}
+              ></Route>
+              <Route exact path="dj/:id" element={<Group groups={[...dj]} />} />
+              <Route
+                exact
+                path="/ostalo"
+                element={<Acoustic groups={[...ostalo]} />}
+              ></Route>
+              <Route
+                exact
+                path="ostalo/:id"
+                element={<Group groups={[...ostalo]} />}
+              />
             </Routes>
           </div>
         </Router>

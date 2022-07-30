@@ -7,6 +7,11 @@
     position:relative;
 }
 
+.instruments{
+    display:flex;
+    flex-direction:column;
+}
+
 ul{
     list-style:none;
     padding:10px;
@@ -17,4 +22,9 @@ ul{
     background-color:white;
     text-align:center;
     margin:auto;
+}
+
+.activeInstruments{
+    display:flex;
+    flex-direction:column;
 }

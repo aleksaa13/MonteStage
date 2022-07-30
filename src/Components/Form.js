@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Styles/Form.module.css";
 import InstrumentsInput from "./InstrumentsInput";
+import { db } from "../firebase.config";
+import { storage } from "../firebase.config";
 
 const Form = (props) => {
   const [name, setName] = useState("");
+  const [instruments, setInstruments] = useState([]);
   const [members, setMembers] = useState(1);
+  const [image, setImage] = useState("");
   const [genres, setGenres] = useState({
     Pop: false,
     Rok: false,
@@ -21,6 +25,33 @@ const Form = (props) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    // let result = {
+    //   name: name,
+    //   members: members,
+    //   instruments: [...instruments],
+    //   genres: { ...genres },
+    // };
+    db.collection("form")
+      .doc(`${name}`)
+      .set({
+        name: name,
+        members: members,
+        instruments: [...instruments],
+        genres: { ...genres },
+      })
+      .then(() => {
+        console.log("Document successfully written!");
+      });
+
+    if (image == null) return;
+
+    storage
+      .ref(`/uplate/${name}`)
+      .put(image)
+      .put(image)
+      .on("state_changed", alert("success"), alert);
+
+    // console.log(result);
   };
   const handleDropdownClick = (e) => {
     setDropdownVisible((prev) => {
@@ -34,6 +65,20 @@ const Form = (props) => {
       obj[e.target.id] = e.target.checked;
       return obj;
     });
+  };
+
+  const handleInstruments = (term) => {
+    let arr = [...instruments];
+    if (arr.indexOf(term) === -1) {
+      arr.push(term);
+    }
+    setInstruments([...arr]);
+  };
+
+  const removeInstrument = (term) => {
+    let arr = instruments;
+    arr.splice(arr.indexOf(term), 1);
+    setInstruments([...arr]);
   };
 
   return (
@@ -78,7 +123,18 @@ const Form = (props) => {
             value={members}
           />
         </div>
-        <InstrumentsInput />
+        <InstrumentsInput
+          allInstruments={props.instruments}
+          instruments={instruments}
+          handleInstruments={(term) => handleInstruments(term)}
+          removeInstrument={(term) => removeInstrument(term)}
+        />
+        <input
+          type="file"
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+          }}
+        />
         <div>
           <input type="submit" />
         </div>

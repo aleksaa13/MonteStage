@@ -2,41 +2,38 @@ import React from "react";
 import styles from "./Styles/InstrumentsInput.module.css";
 import SuggestionInputSearch from "suggestion-react-input-search";
 
-const InstrumentsInput = () => {
-  const handleOnSubmit = () => {};
+const InstrumentsInput = (props) => {
+  const handleOnSubmit = (term) => {
+    props.handleInstruments(term);
+  };
 
   const placeholder = "Unesite instrument";
   const inputPosition = "center";
 
-  const instruments = [
-    "gitara",
-    "klavijatura",
-    "bubanj",
-    "violina",
-    "kahon",
-    "saksofon",
-    "bas gitara",
-  ];
-
-  const recentSearches = [...instruments];
-
   return (
-    <div>
-      <input type="text" />
+    <div className={styles.instruments}>
       <div className={styles.reccomendationsWrapper}>
         <hr />
         <SuggestionInputSearch
           onSubmitFunction={handleOnSubmit}
-          recentSearches={recentSearches}
+          recentSearches={[...props.allInstruments]}
           placeholder={placeholder}
           inputPosition={inputPosition}
           inputClass={styles.inputClass}
           suggestionListClass={styles.suggestionClass}
         />
-        <div>
-          <button>+</button>
-        </div>
         <hr />
+      </div>
+
+      <div className={styles.activeInstruments}>
+        {props.instruments.map((ins) => {
+          return (
+            <p>
+              <span onClick={(term) => props.removeInstrument(ins)}>-</span>
+              <span className={styles.ins}>{ins}</span>
+            </p>
+          );
+        })}
       </div>
     </div>
   );

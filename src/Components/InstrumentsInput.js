@@ -4,7 +4,9 @@ import SuggestionInputSearch from "suggestion-react-input-search";
 
 const InstrumentsInput = (props) => {
   const handleOnSubmit = (term) => {
-    props.handleInstruments(term);
+    if (props.allInstruments.includes(term)) {
+      props.handleInstruments(term);
+    }
   };
 
   const placeholder = "Unesite instrument";

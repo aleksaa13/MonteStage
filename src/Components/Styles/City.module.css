@@ -1,0 +1,30 @@
+.reccomendationsWrapper {
+    position:relative;    
+}
+
+.inputClass{
+    width:200px;
+    position:relative;
+}
+
+.instruments{
+    display:flex;
+    flex-direction:column;
+}
+
+ul{
+    list-style:none;
+    padding:10px;
+}
+
+.suggestionClass{
+    width:250px;
+    background-color:white;
+    text-align:center;
+    margin:auto;
+}
+
+.activeInstruments{
+    display:flex;
+    flex-direction:column;
+}

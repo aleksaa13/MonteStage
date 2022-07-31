@@ -15,7 +15,6 @@ const InstrumentsInput = (props) => {
   return (
     <div className={styles.instruments}>
       <div className={styles.reccomendationsWrapper}>
-        <hr />
         <SuggestionInputSearch
           onSubmitFunction={handleOnSubmit}
           recentSearches={[...props.allInstruments]}
@@ -23,8 +22,8 @@ const InstrumentsInput = (props) => {
           inputPosition={inputPosition}
           inputClass={styles.inputClass}
           suggestionListClass={styles.suggestionClass}
+          minLength={3}
         />
-        <hr />
       </div>
 
       <div className={styles.activeInstruments}>

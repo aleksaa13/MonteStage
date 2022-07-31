@@ -242,7 +242,15 @@
       }
   
       .bars {
-        align-self: flex-start;
+        align-self: center;
+        height:100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .header ul {
+        margin-top: 0;
+        padding-top:0;
       }
     }
   }

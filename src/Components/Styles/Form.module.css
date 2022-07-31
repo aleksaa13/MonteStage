@@ -7,15 +7,16 @@
     cursor: pointer;
     display: inline-block;
     padding: 5px 50px 5px 10px;
-    border: 1px solid #ccc;
-    color: #0094ff;
+    border: 1px solid #48473B;
+    color: #007662;
+    margin-bottom:15px;
   }
   
 .anchor:after {
     position: absolute;
     content: "";
-    border-left: 2px solid black;
-    border-top: 2px solid black;
+    border-left: 2px solid #48473B;
+    border-top: 2px solid #48473B;
     padding: 5px;
     right: 10px;
     top: 20%;
@@ -30,6 +31,12 @@
     right: 8px;
     top: 21%;
   }
+
+.genresListWrapper{
+  margin-top:0.5px;
+  border:2px solid #48473B;
+  margin-bottom:15px;
+}
   
 .items{
   list-style: none;
@@ -37,8 +44,6 @@
   flex-direction:column;
   align-items:flex-start;
   background-color:white;
-  border:1px solid blue;
-  padding:0px 10px;
   margin:0;
 }
 
@@ -48,6 +53,112 @@
 
 .invisible{
     display:none;
+}
+
+.name{
+  position:relative;
+  margin-bottom:15px;
+}
+
+.formField {
+  border: 0;
+  border-bottom: 2px solid #48473B;
+  outline: 0;
+  font-size: 15px;
+  color: #007662;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  width:70%;
+  margin:auto;
+  padding-bottom:0;
+}
+.formField::placeholder {
+    color:transparent;
+}
+
+.label {
+  position: absolute;
+  top: -7px;
+  left:15%;
+  display: block;
+  transition: 0.2s;
+  font-size: 9px;
+  color: #007662;
+}
+
+.formField:placeholder-shown ~ .label {
+    font-size: 15px;
+    cursor: text;
+    top: 9px;
+    
   }
 
- 
+.formField:focus ~ .label {
+    position: absolute;
+    top: -7px;
+    display: block;
+    transition: 0.2s;
+    font-size: 9px;
+    color: #00C9AF;
+    font-weight:700;    
+}
+.formField:focus{
+  padding-bottom: 6px;  
+  font-weight: 500;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #00C9AF,#007662);
+  border-image-slice: 1;
+}
+
+.labelMembers{
+  color:#007662;
+  margin-right:10px;
+}
+
+.formFieldNumber {
+  border: 0;
+  border-bottom: 2px solid #48473B;
+  outline: 0;
+  font-size: 15px;
+  color: #007662;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  width:40px;
+  margin:auto;
+  padding-bottom:0;
+  padding-left:15px;
+  font-size:16px;
+}
+
+.formFieldNumber:focus{
+  border-bottom: 2px solid #007662;
+  font-size:20px;
+  font-weight:700;
+}
+
+.fileInputContainer{
+  margin-bottom:10px;
+  position:relative;
+}
+
+.fileInput{
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+  font-size: 17px;
+  color: #48473B;
+}
+
+.buttonLabel{
+  display: inline-block;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #00C9AF;
+  font-size: 16px;
+  font-weight: bold;
+  color: #48473B;
+}

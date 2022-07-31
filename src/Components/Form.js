@@ -164,20 +164,41 @@ const Form = (props) => {
     <div className={styles.formWrapper}>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.name}>
-          Ime:
           <input
+            id="name"
             type="text"
             maxLength="20"
+            placeholder="Ime"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className={styles.formField}
+            required={true}
           />
+          <label htmlFor="name" className={styles.label}>
+            Naziv izvođača
+          </label>
         </div>
+        <InstrumentsInput
+          allInstruments={props.instruments}
+          instruments={instruments}
+          handleInstruments={(term) => handleInstruments(term)}
+          removeInstrument={(term) => removeInstrument(term)}
+          errorMessage={errorMessages[instruments]}
+          error={errors[instruments]}
+        />
+        <span className={styles.error}>
+          {errors.instruments ? errorMessages.instruments : null}
+        </span>
         <div className={styles.genre}>
           <div id="list1" className={styles.dropdownCheckList} tabIndex="100">
             <span className={styles.anchor} onClick={handleDropdownClick}>
               Žanrovi
             </span>
-            <div className={dropdownVisible ? styles.aleksa : styles.invisible}>
+            <div
+              className={
+                dropdownVisible ? styles.genresListWrapper : styles.invisible
+              }
+            >
               <ul className={styles.items}>
                 {props.genres.map((genre) => {
                   return (
@@ -201,7 +222,13 @@ const Form = (props) => {
           {errors.genres ? errorMessages.genres : null}
         </span>
         <div className={styles.members}>
+          <label htmlFor="members" className={styles.labelMembers}>
+            Broj članova:
+          </label>
           <input
+            className={styles.formFieldNumber}
+            placeholder="Broj članova"
+            id="memebers"
             type="number"
             min="1"
             max="100"
@@ -209,63 +236,79 @@ const Form = (props) => {
             value={members}
           />
         </div>
-        <InstrumentsInput
-          allInstruments={props.instruments}
-          instruments={instruments}
-          handleInstruments={(term) => handleInstruments(term)}
-          removeInstrument={(term) => removeInstrument(term)}
-          errorMessage={errorMessages[instruments]}
-          error={errors[instruments]}
-        />
+
+        <div className={styles.name}>
+          <input
+            id="ig_link"
+            type="text"
+            placeholder="Instagram Link"
+            value={ig_link}
+            onChange={(e) => setIg_link(e.target.value)}
+            className={styles.formField}
+          />
+          <label htmlFor="ig_link" className={styles.label}>
+            Instagram Link
+          </label>
+        </div>
+        <div className={styles.name}>
+          <input
+            id="fb_link"
+            type="text"
+            placeholder="Facebook Link"
+            value={fb_link}
+            onChange={(e) => setFb_link(e.target.value)}
+            className={styles.formField}
+          />
+          <label htmlFor="fb_link" className={styles.label}>
+            Facebook Link
+          </label>
+        </div>
+        <div className={styles.name}>
+          <input
+            id="yt1_link"
+            type="text"
+            placeholder="Youtube Link 1"
+            value={yt1_link}
+            onChange={(e) => setYt1_link(e.target.value)}
+            className={styles.formField}
+          />
+          <label htmlFor="yt1_link" className={styles.label}>
+            Youtube Link 1
+          </label>
+        </div>
+        <div className={styles.name}>
+          <input
+            id="yt2_link"
+            type="text"
+            placeholder="Youtube Link 2"
+            value={yt2_link}
+            onChange={(e) => setYt2_link(e.target.value)}
+            className={styles.formField}
+          />
+          <label htmlFor="yt2_link" className={styles.label}>
+            Youtube Link 2
+          </label>
+        </div>
+        <div className={styles.fileInputContainer}>
+          <label className={styles.buttonLabel} htmlFor="upload">
+            Slika uplatnice
+          </label>
+          <input
+            id="upload"
+            className={styles.fileInput}
+            type="file"
+            onChange={(e) => {
+              setImage(e.target.files[0]);
+            }}
+          />
+        </div>
         <span className={styles.error}>
-          {errors.instruments ? errorMessages.instruments : null}
+          {errors.image ? errorMessages.image : null}
         </span>
         <CityInput handleCity={(term) => handleCity(term)} />
         <span className={styles.error}>
           {errors.city ? errorMessages.city : null}
         </span>
-        <input
-          type="file"
-          onChange={(e) => {
-            setImage(e.target.files[0]);
-          }}
-        />
-        <span className={styles.error}>
-          {errors.image ? errorMessages.image : null}
-        </span>
-
-        <div className={styles.textInputWrapper}>
-          <span className="label">Instagram link:</span>
-          <input
-            type="text"
-            onChange={(e) => setIg_link(e.target.value)}
-            value={ig_link}
-          />
-        </div>
-        <div className={styles.textInputWrapper}>
-          <span className="label">Facebook link:</span>
-          <input
-            type="text"
-            onChange={(e) => setFb_link(e.target.value)}
-            value={fb_link}
-          />
-        </div>
-        <div className={styles.textInputWrapper}>
-          <span className="label">Youtube link 1:</span>
-          <input
-            type="text"
-            onChange={(e) => setYt1_link(e.target.value)}
-            value={yt1_link}
-          />
-        </div>
-        <div className={styles.textInputWrapper}>
-          <span className="label">Youtube link 2:</span>
-          <input
-            type="text"
-            onChange={(e) => setYt2_link(e.target.value)}
-            value={yt2_link}
-          />
-        </div>
         <div>
           <input type="submit" />
         </div>

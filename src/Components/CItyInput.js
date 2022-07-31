@@ -40,7 +40,6 @@ const CityInput = (props) => {
   return (
     <div className={styles.instruments}>
       <div className={styles.reccomendationsWrapper}>
-        <hr />
         <SuggestionInputSearch
           onSubmitFunction={handleOnSubmit}
           recentSearches={[...cities]}
@@ -48,8 +47,8 @@ const CityInput = (props) => {
           inputPosition={inputPosition}
           inputClass={styles.inputClass}
           suggestionListClass={styles.suggestionClass}
+          minLength={3}
         />
-        <hr />
       </div>
 
       <div>{city}</div>

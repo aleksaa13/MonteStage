@@ -30,8 +30,13 @@ const InstrumentsInput = (props) => {
         {props.instruments.map((ins) => {
           return (
             <p>
-              <span onClick={(term) => props.removeInstrument(ins)}>-</span>
               <span className={styles.ins}>{ins}</span>
+              <span
+                className={styles.removeInstrument}
+                onClick={(term) => props.removeInstrument(ins)}
+              >
+                -
+              </span>
             </p>
           );
         })}

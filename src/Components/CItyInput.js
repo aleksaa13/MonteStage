@@ -50,8 +50,6 @@ const CityInput = (props) => {
           minLength={3}
         />
       </div>
-
-      <div>{city}</div>
     </div>
   );
 };

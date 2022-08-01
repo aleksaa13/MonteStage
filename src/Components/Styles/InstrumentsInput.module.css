@@ -9,6 +9,17 @@
     width:150px;
     position:relative;
     z-index:150;
+    border:0;
+    border-bottom: 2px solid #48473B;
+  outline: 0;
+  font-size: 15px;
+  color: #007662;
+  padding: 7px 15px;
+  background: transparent;
+  transition: border-color 0.2s;
+  width:50%;
+  margin:auto;
+  padding-bottom:0;
 }
 
 .instruments ul{
@@ -23,7 +34,7 @@
 }
 
 .instruments ul li{
-   
+   padding:8px;
    border-bottom:1px solid #48473B;
 }
 .instruments ul li:hover{
@@ -38,3 +49,15 @@ display:flex;
 align-items: center;
 justify-content: center;
 } 
+
+.removeInstrument{
+   color:#48473B;
+   margin-left:5px;
+}
+.removeInstrument:hover{
+   cursor:pointer;
+}
+
+.ins{
+   color:#00C9AF;
+}

@@ -26,3 +26,52 @@
 .invisible{
     display:none;
 }
+
+.name{
+    color:#007662;
+}
+
+.mark{
+    color:#48473B;
+}
+
+.value{
+    color:#007662;
+    padding:5px;
+}
+
+.markWrapper{
+    margin:10px auto;
+}
+
+.wrapper{
+    border: 1px solid #48473B;
+    position:relative;
+    width:70%;
+    margin:20px auto;
+}
+
+.wrapperText{
+    position:absolute;
+    top:-10px;
+    left:4px;
+    height:20px;
+    color:#48473B;
+    background-color:#ECEBDC;
+    padding:0 3px;
+}
+
+.socialMedia{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon:hover{
+    cursor:pointer;
+}
+
+.videoContainer{
+    margin-bottom:20px;
+}

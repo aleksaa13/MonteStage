@@ -1,3 +1,7 @@
+.header{
+  z-index:200;
+}
+
 .header ul {
   list-style-type: none;
   display: flex;
@@ -251,6 +255,7 @@
       .header ul {
         margin-top: 0;
         padding-top:0;
+        z-index:200;
       }
     }
   }

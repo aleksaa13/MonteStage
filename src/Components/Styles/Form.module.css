@@ -162,3 +162,8 @@
   font-weight: bold;
   color: #48473B;
 }
+
+.error{
+  color:red;
+  font-size:10px;
+}

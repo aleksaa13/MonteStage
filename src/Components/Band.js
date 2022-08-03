@@ -20,6 +20,7 @@ const Band = (props) => {
             >
               {group.name}
             </strong>
+            <div className={styles.darkenBg}></div>
           </div>
         );
       })}

@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./Styles/Acoustic.module.css";
-import { Link, Route, Routes } from "react-router-dom";
-import Group from "./Group";
 import { useNavigate } from "react-router-dom";
 
 const Acoustic = (props) => {
@@ -26,6 +24,7 @@ const Acoustic = (props) => {
               >
                 {group.name}
               </strong>
+              <div className={styles.darkenBg}></div>
             </div>
           );
         })}

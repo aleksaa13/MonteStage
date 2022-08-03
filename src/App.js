@@ -10,6 +10,7 @@ import Header from "./Components/Header";
 import WebFont from "webfontloader";
 import Group from "./Components/Group";
 import Form from "./Components/Form";
+import Filter from "./Components/Filter";
 
 function App() {
   const [acoustic, setAcoustic] = useState([]);
@@ -23,7 +24,7 @@ function App() {
 
   let genres = [
     "Zabavna/Pop",
-    "Rock n Roll",
+    "Rok",
     "Blues",
     "Jazz",
     "Narodna",
@@ -61,6 +62,29 @@ function App() {
     "Matrice/DJ",
   ];
 
+  const cities = [
+    "Podgorica",
+    "Mojkovac",
+    "Kolašin",
+    "Žabljak",
+    "Pljevlja",
+    "Tivat",
+    "Petnjica",
+    "Kotor",
+    "Šavnik",
+    "Herceg Novi",
+    "Budva",
+    "Cetinje",
+    "Nikšić",
+    "Berane",
+    "Bijelo Polje",
+    "Ulcinj",
+    "Bar",
+    "Tuzi",
+    "Gusinje",
+    "Plav",
+  ];
+
   useEffect(() => {
     fetchData();
 
@@ -77,9 +101,14 @@ function App() {
     let acc = [];
     let voc = [];
     let band = [];
+    let dj = [];
+    let solo = [];
+    let rest = [];
+    let instrumental = [];
+    let allPerformers = [];
 
     data.docs.forEach((item) => {
-      all.push(item.data());
+      allPerformers.push(item.data());
       switch (item.data().cat) {
         case "acoustic":
           acc.push(item.data());
@@ -107,6 +136,11 @@ function App() {
     setAcoustic([...acc]);
     setVocal_groups([...voc]);
     setBand([...band]);
+    setDj([...dj]);
+    setSolo([...solo]);
+    setInstrumental([...instrumental]);
+    setOStalo([...rest]);
+    setAll([...allPerformers]);
   };
 
   return (
@@ -188,6 +222,18 @@ function App() {
                 exact
                 path="ostalo/:id"
                 element={<Group groups={[...ostalo]} />}
+              />
+              <Route
+                exact
+                path="filter"
+                element={
+                  <Filter
+                    performers={[...all]}
+                    cities={cities}
+                    instruments={instruments}
+                    genres={genres}
+                  />
+                }
               />
             </Routes>
           </div>

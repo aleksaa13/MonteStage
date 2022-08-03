@@ -26,7 +26,7 @@ const Group = (props) => {
           <div className={styles.markWrapper}>
             <span className={styles.mark}>Instrumenti : </span>
             <span className={styles.value}>
-              {group[0].instruments.split(/[ ,]+/).map((instrument) => {
+              {group[0].instruments.map((instrument) => {
                 return <span>{`${instrument}   `}</span>;
               })}
             </span>

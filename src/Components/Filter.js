@@ -18,31 +18,20 @@ const Filter = (props) => {
 
   let navigate = useNavigate();
 
-  // const filterGenres = () => {
-  //   return filterParams["genres"].every((v) =>
-  //   props.performers[0].genres.includes(v)
-  // )
-  // }
-
-  // const applyFilter = () => {
-  //   let filteredItems = props.performers.filter((performer) =>
-  //     filterParams["genres"].every((v) => performer.genres.includes(v))
-  //   )
-  //   .filter((performer) =>
-  //   filterParams["instruments"].every((v) => performer.instruments.includes(v))
-  // )
-  // .filter((performer) =>
-  //     filterParams["cities"].every((v) => performer.cities.includes(v))
-  //   )
-
-  // };
-
   const toggleActivity = (e) => {
-    let type = e.target.id.split(" ")[0];
-    let param = e.target.id.split(" ")[1];
+    const [type, ...rest] = e.target.id.split(" ");
+    console.log(rest);
+    let param;
+    if (rest.length === 1) {
+      param = rest[0];
+    } else param = rest[0] + " " + rest[1];
     let obj = { ...filterParams };
+
     if (type === "cities") {
       obj["cities"] = [param];
+      if (isActive(param, type)) {
+        obj["cities"] = [];
+      }
     } else {
       let params = [...filterParams[`${type}`]];
       if (isActive(param, type)) {
@@ -162,29 +151,6 @@ const Filter = (props) => {
         </AccordionItem>
       </Accordion>
 
-      {/* <div className={styles.filterWrapepr}>
-          <p className={styles.filterName}>Zanrovi</p>
-          <div className={styles.filterButtons}>
-            {props.genres.map((genre) => {
-              return (
-                <div
-                  className={
-                    isActive(genre, "genres")
-                      ? `${styles.filterButton} ${styles.active}`
-                      : styles.filterButton
-                  }
-                  onClick={(e) => {
-                    toggleActivity(e);
-                  }}
-                  id={`genres ${genre}`}
-                  key={genre}
-                >
-                  {genre}
-                </div>
-              );
-            })}
-          </div>
-        </div> */}
       <div className={styles.acoustic}>
         {props.performers
           .filter((performer) =>
@@ -201,7 +167,6 @@ const Filter = (props) => {
             )
           )
           .map((group) => {
-            console.log(group);
             return (
               <div
                 className={styles.cardWrap}

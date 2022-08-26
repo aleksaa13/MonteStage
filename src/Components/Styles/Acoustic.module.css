@@ -55,3 +55,20 @@
     opacity:0.8;
 }
 
+@media only screen and (min-width: 550px) {
+
+    .acoustic{
+        width:90vw;
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content: space-around;
+        margin:auto;
+    }
+    
+    .cardWrap{
+        width:25%;
+        height:150px;
+    }
+
+}

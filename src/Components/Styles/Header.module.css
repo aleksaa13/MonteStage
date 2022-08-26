@@ -19,12 +19,13 @@
     text-decoration: none;
   }
   .link:hover a {
-    color: white;
+    color:#007662;
   }
   
   nav {
     width: 80%;
     position: absolute;
+    margin:20px auto;
   }
   
   .link {
@@ -37,6 +38,7 @@
     /* background-color: #031d2a; */
     margin: 0 10px;
     font-size:20px;
+  
   }
   
   .header {

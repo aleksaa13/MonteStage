@@ -4,11 +4,8 @@ import styles from "../Components/Styles/Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
-import { faFile } from "@fortawesome/free-solid-svg-icons";
-import { faSignal } from "@fortawesome/free-solid-svg-icons";
-import { faCalculator } from "@fortawesome/free-solid-svg-icons";
-import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faIdCard } from "@fortawesome/free-solid-svg-icons";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import image from "../images/0.png";
 
 const Header = () => {
@@ -50,7 +47,7 @@ const Header = () => {
                   }}
                 >
                   <span>
-                    <FontAwesomeIcon icon={faSignal} className={styles.icon} />
+                    <FontAwesomeIcon icon={faIdCard} className={styles.icon} />
                   </span>
                   Registracija
                 </NavLink>
@@ -59,19 +56,16 @@ const Header = () => {
               <li className={styles.link} onClick={toggle}>
                 <NavLink
                   exact
-                  to="/events"
+                  to="/filter"
                   activeStyle={{
                     fontWeight: "bold",
                     textDecoration: "underline",
                   }}
                 >
                   <span>
-                    <FontAwesomeIcon
-                      icon={faCalculator}
-                      className={styles.icon}
-                    />
+                    <FontAwesomeIcon icon={faFilter} className={styles.icon} />
                   </span>
-                  Događaji
+                  Filteri
                 </NavLink>
               </li>
 
@@ -85,7 +79,7 @@ const Header = () => {
                   }}
                 >
                   <span>
-                    <FontAwesomeIcon icon={faFile} className={styles.icon} />
+                    <FontAwesomeIcon icon={faHome} className={styles.icon} />
                   </span>
                   Početna
                 </NavLink>

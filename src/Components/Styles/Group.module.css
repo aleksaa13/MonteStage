@@ -75,3 +75,35 @@
 .videoContainer{
     margin-bottom:20px;
 }
+
+@media only screen and (min-width: 550px) {
+
+    .groupWrapper{
+        width:80vw;
+        margin:auto;
+    }
+
+    .wrapper{
+        margin:20px auto;
+    }
+
+    .imageContainer{
+        width:35%;
+        margin-top:50px;
+    }
+
+    .pushImgOther{
+width:65%;
+    }
+
+    .pushImg{
+        display:flex;
+        flex-direction:row;
+    }
+
+    .videos{
+        display:flex;
+        flex-flow:row wrap;
+    }
+
+}

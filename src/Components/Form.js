@@ -11,6 +11,7 @@ const Form = (props) => {
   const [instruments, setInstruments] = useState([]);
   const [members, setMembers] = useState(1);
   const [image, setImage] = useState("");
+  const [slikaBenda, setSlikaBenda] = useState("");
   const [yt1_link, setYt1_link] = useState("");
   const [yt2_link, setYt2_link] = useState("");
   const [ig_link, setIg_link] = useState("");
@@ -68,6 +69,11 @@ const Form = (props) => {
     storage
       .ref(`/uplate/${name}`)
       .put(image)
+      .on("state_changed", alert("success"), alert);
+
+    storage
+      .ref(`/slika/${name}`)
+      .put(slikaBenda)
       .on("state_changed", alert("success"), alert);
 
     // console.log(result);
@@ -234,6 +240,20 @@ const Form = (props) => {
             max="100"
             onChange={(e) => setMembers(e.target.value)}
             value={members}
+          />
+        </div>
+
+        <div className={styles.fileInputContainer}>
+          <label className={styles.buttonLabel} htmlFor="slika">
+            Vaša slika
+          </label>
+          <input
+            id="slika"
+            className={styles.fileInput}
+            type="file"
+            onChange={(e) => {
+              setSlikaBenda(e.target.files[0]);
+            }}
           />
         </div>
 

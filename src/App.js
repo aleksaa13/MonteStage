@@ -11,6 +11,7 @@ import WebFont from "webfontloader";
 import Group from "./Components/Group";
 import Form from "./Components/Form";
 import Filter from "./Components/Filter";
+import About from "./Components/About";
 
 function App() {
   const [acoustic, setAcoustic] = useState([]);
@@ -156,6 +157,7 @@ function App() {
                 path="/acoustic"
                 element={<Acoustic groups={[...acoustic]} />}
               ></Route>
+              <Route exact path="/about" element={<About />}></Route>
               <Route
                 exact
                 path="acoustic/:id"
@@ -191,6 +193,7 @@ function App() {
                 path="/instrumental"
                 element={<Acoustic groups={[...instrumental]} />}
               ></Route>
+
               <Route
                 exact
                 path="instrumental/:id"

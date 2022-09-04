@@ -6,6 +6,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faIdCard } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import image from "../images/0.png";
 
 const Header = () => {
@@ -40,7 +41,7 @@ const Header = () => {
               <li className={styles.link} onClick={toggle}>
                 <NavLink
                   exact
-                  to="/form"
+                  to="/about"
                   activeStyle={{
                     fontWeight: "bold",
                     textDecoration: "underline",
@@ -48,6 +49,25 @@ const Header = () => {
                 >
                   <span>
                     <FontAwesomeIcon icon={faIdCard} className={styles.icon} />
+                  </span>
+                  O nama
+                </NavLink>
+              </li>
+
+              <li className={styles.link} onClick={toggle}>
+                <NavLink
+                  exact
+                  to="/form"
+                  activeStyle={{
+                    fontWeight: "bold",
+                    textDecoration: "underline",
+                  }}
+                >
+                  <span>
+                    <FontAwesomeIcon
+                      icon={faSquareCheck}
+                      className={styles.icon}
+                    />
                   </span>
                   Registracija
                 </NavLink>

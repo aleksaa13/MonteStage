@@ -45,6 +45,8 @@ function App() {
   const instruments = [
     "Bas gitara",
     "Akustična gitara",
+    "Klasična gitara",
+    "Električna gitara",
     "Klavijatura",
     "Klavir",
     "Bubanj/Perkusije",
@@ -54,7 +56,7 @@ function App() {
     "Kahon",
     "Harmonika",
     "Saksofon",
-    "Kontrabas",
+    "Kontrabas/Berda",
     "Tambura",
     "Flauta",
     "Truba",

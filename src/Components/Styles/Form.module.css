@@ -55,6 +55,10 @@
     display:none;
 }
 
+.formWrapper{
+  padding-bottom:50px;
+}
+
 .name{
   position:relative;
   margin-bottom:15px;

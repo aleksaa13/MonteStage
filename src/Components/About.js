@@ -7,7 +7,7 @@ const About = () => {
       <p className={styles.text}>
         "Montestage" predstavlja mjesto na kom se nalaze kontakt podaci i
         detaljan opis svih muzičara iz Crne Gore koji žele da se promovišu i
-        koje je moguće angaržovati za različite vrste događaja.
+        koje je moguće angažovati za različite vrste događaja.
         <br />
         Sa idejom da sve muzičare skupimo na jednom mjestu rodio se naš sajt
         koji je prije svega alat, pomoćno sredstvo za pronalaženje odgovarajućih

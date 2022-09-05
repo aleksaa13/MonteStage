@@ -4,6 +4,7 @@ import InstrumentsInput from "./InstrumentsInput";
 import CityInput from "./CItyInput";
 import { db } from "../firebase.config";
 import { storage } from "../firebase.config";
+import PhoneInput from "react-phone-number-input/input";
 
 const Form = (props) => {
   const [city, setCity] = useState("");
@@ -15,6 +16,8 @@ const Form = (props) => {
   const [yt1_link, setYt1_link] = useState("");
   const [yt2_link, setYt2_link] = useState("");
   const [ig_link, setIg_link] = useState("");
+  const [telephone, setTelephone] = useState("");
+  const [email, setEmail] = useState("");
   const [fb_link, setFb_link] = useState("");
   const [genres, setGenres] = useState({
     Pop: false,
@@ -57,6 +60,8 @@ const Form = (props) => {
         instruments: [...instruments],
         genres: { ...genres },
         city: city,
+        mobile: telephone,
+        email: email,
         yt1_link: yt1_link,
         yt2_link: yt2_link,
         ig_link: ig_link,
@@ -184,14 +189,6 @@ const Form = (props) => {
             Naziv izvođača
           </label>
         </div>
-        <InstrumentsInput
-          allInstruments={props.instruments}
-          instruments={instruments}
-          handleInstruments={(term) => handleInstruments(term)}
-          removeInstrument={(term) => removeInstrument(term)}
-          errorMessage={errorMessages[instruments]}
-          error={errors[instruments]}
-        />
         <span className={styles.error}>
           {errors.instruments ? errorMessages.instruments : null}
         </span>
@@ -256,7 +253,41 @@ const Form = (props) => {
             }}
           />
         </div>
-
+        <div className={styles.name}>
+          <PhoneInput
+            id="mobile"
+            className={styles.formField}
+            country="ME"
+            international
+            value={telephone}
+            onChange={setTelephone}
+            placeholder="Telefon"
+          />
+          <label htmlFor="mobile" className={styles.label}>
+            Telefon
+          </label>
+        </div>
+        <div className={styles.name}>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={styles.formField}
+          />
+          <label htmlFor="email" className={styles.label}>
+            Email
+          </label>
+        </div>
+        <InstrumentsInput
+          allInstruments={props.instruments}
+          instruments={instruments}
+          handleInstruments={(term) => handleInstruments(term)}
+          removeInstrument={(term) => removeInstrument(term)}
+          errorMessage={errorMessages[instruments]}
+          error={errors[instruments]}
+        />
         <div className={styles.name}>
           <input
             id="ig_link"
@@ -309,6 +340,7 @@ const Form = (props) => {
             Youtube Link 2
           </label>
         </div>
+        {/*  SLIKA UPLATNICE
         <div className={styles.fileInputContainer}>
           <label className={styles.buttonLabel} htmlFor="upload">
             Slika uplatnice
@@ -324,7 +356,7 @@ const Form = (props) => {
         </div>
         <span className={styles.error}>
           {errors.image ? errorMessages.image : null}
-        </span>
+        </span> */}
         <CityInput handleCity={(term) => handleCity(term)} />
         <span className={styles.error}>
           {errors.city ? errorMessages.city : null}

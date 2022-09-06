@@ -11,7 +11,7 @@ const Form = (props) => {
   const [name, setName] = useState("");
   const [instruments, setInstruments] = useState([]);
   const [members, setMembers] = useState(1);
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
   const [slikaBenda, setSlikaBenda] = useState("");
   const [yt1_link, setYt1_link] = useState("");
   const [yt2_link, setYt2_link] = useState("");
@@ -19,6 +19,7 @@ const Form = (props) => {
   const [telephone, setTelephone] = useState("");
   const [email, setEmail] = useState("");
   const [fb_link, setFb_link] = useState("");
+  const [oNama, setONama] = useState("");
   const [genres, setGenres] = useState({
     Pop: false,
     Rok: false,
@@ -37,15 +38,18 @@ const Form = (props) => {
     genres: false,
     city: false,
     image: false,
+    telephone: false,
   });
   const errorMessages = {
     instruments: "Unesite makar jedan instrument",
-    city: "Izaberite crnogorski grad",
-    genres: "Odaberite makar jedan zanr",
-    image: "Uploadujte sliku uplatnice",
+    city: "Odakle nam dolazite?",
+    genres: "Odaberite makar jedan žanr",
+    image: "Željeli bi da znamo i kako izgledate",
+    telephone: "Unesite ispravan broj telefona",
   };
 
   const [dropdownVisible, setDropdownVisible] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) {
@@ -66,28 +70,27 @@ const Form = (props) => {
         yt2_link: yt2_link,
         ig_link: ig_link,
         fb_link: fb_link,
+        o_nama: oNama,
       })
       .then(() => {
         console.log("Document successfully written!");
       });
 
-    storage
-      .ref(`/uplate/${name}`)
-      .put(image)
-      .on("state_changed", alert("success"), alert);
+    // storage
+    //   .ref(`/uplate/${name}`)
+    //   .put(image)
+    //   .on("state_changed", alert("Hvala što ste se registrovali!"), alert);
 
     storage
       .ref(`/slika/${name}`)
       .put(slikaBenda)
-      .on("state_changed", alert("success"), alert);
+      .on("state_changed", alert("Hvala Vam što ste se registrovali!"), alert);
 
     // console.log(result);
   };
 
-  const validate = () => {
-    let ind = 0;
-    if (image === "") {
-      ind = 1;
+  const validateSlikaBenda = () => {
+    if (slikaBenda === "") {
       setErrors((prevState) => {
         return { ...prevState, image: true };
       });
@@ -96,8 +99,10 @@ const Form = (props) => {
         return { ...prevState, image: false };
       });
     }
+  };
+
+  const validateCity = () => {
     if (city === "") {
-      ind = 1;
       setErrors((prevState) => {
         return { ...prevState, city: true };
       });
@@ -106,8 +111,14 @@ const Form = (props) => {
         return { ...prevState, city: false };
       });
     }
-    if (!Object.values(genres).includes(true)) {
-      ind = 1;
+  };
+
+  const allAreFalse = (arr) => {
+    return arr.every((element) => element === false);
+  };
+
+  const validateGenres = () => {
+    if (allAreFalse(Object.values(genres))) {
       setErrors((prevState) => {
         return { ...prevState, genres: true };
       });
@@ -116,8 +127,10 @@ const Form = (props) => {
         return { ...prevState, genres: false };
       });
     }
+  };
+
+  const validateInstruments = () => {
     if (instruments.length === 0) {
-      ind = 1;
       setErrors((prevState) => {
         return { ...prevState, instruments: true };
       });
@@ -126,9 +139,30 @@ const Form = (props) => {
         return { ...prevState, instruments: false };
       });
     }
+  };
 
-    if (ind === 1) return false;
-    else return true;
+  const validateTelephone = () => {
+    if (!telephone || telephone.length !== 12 || telephone[4] !== "6") {
+      setErrors((prevState) => {
+        return { ...prevState, telephone: true };
+      });
+    } else {
+      setErrors((prevState) => {
+        return { ...prevState, telephone: false };
+      });
+    }
+  };
+
+  const validate = () => {
+    validateTelephone();
+    validateSlikaBenda();
+    validateCity();
+    validateGenres();
+    validateInstruments();
+
+    if (Object.values(errors).includes(true)) {
+      return false;
+    } else return true;
   };
 
   const handleDropdownClick = (e) => {
@@ -143,6 +177,7 @@ const Form = (props) => {
       obj[e.target.id] = e.target.checked;
       return obj;
     });
+    validateGenres();
   };
 
   const handleInstruments = (term) => {
@@ -151,10 +186,12 @@ const Form = (props) => {
       arr.push(term);
     }
     setInstruments([...arr]);
+    validateInstruments();
   };
 
   const handleCity = (term) => {
     setCity(term);
+    validateCity();
   };
 
   const removeInstrument = (term) => {
@@ -168,7 +205,7 @@ const Form = (props) => {
         return obj;
       });
     }
-    validate();
+    validateInstruments();
   };
 
   return (
@@ -178,7 +215,7 @@ const Form = (props) => {
           <input
             id="name"
             type="text"
-            maxLength="20"
+            maxLength="25"
             placeholder="Ime"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -189,9 +226,6 @@ const Form = (props) => {
             Naziv izvođača
           </label>
         </div>
-        <span className={styles.error}>
-          {errors.instruments ? errorMessages.instruments : null}
-        </span>
         <div className={styles.genre}>
           <div id="list1" className={styles.dropdownCheckList} tabIndex="100">
             <span className={styles.anchor} onClick={handleDropdownClick}>
@@ -237,6 +271,7 @@ const Form = (props) => {
             max="100"
             onChange={(e) => setMembers(e.target.value)}
             value={members}
+            required
           />
         </div>
 
@@ -253,6 +288,10 @@ const Form = (props) => {
             }}
           />
         </div>
+        <span className={styles.error}>
+          {errors.image ? errorMessages.image : null}
+        </span>
+
         <div className={styles.name}>
           <PhoneInput
             id="mobile"
@@ -264,9 +303,12 @@ const Form = (props) => {
             placeholder="Telefon"
           />
           <label htmlFor="mobile" className={styles.label}>
-            Telefon
+            Telefon (ex. 069 432 xxx)
           </label>
         </div>
+        <span className={styles.error}>
+          {errors.telephone ? errorMessages.telephone : null}
+        </span>
         <div className={styles.name}>
           <input
             id="email"
@@ -285,9 +327,10 @@ const Form = (props) => {
           instruments={instruments}
           handleInstruments={(term) => handleInstruments(term)}
           removeInstrument={(term) => removeInstrument(term)}
-          errorMessage={errorMessages[instruments]}
-          error={errors[instruments]}
         />
+        <span className={styles.error}>
+          {errors.instruments ? errorMessages.instruments : null}
+        </span>
         <div className={styles.name}>
           <input
             id="ig_link"
@@ -338,6 +381,19 @@ const Form = (props) => {
           />
           <label htmlFor="yt2_link" className={styles.label}>
             Youtube Link 2
+          </label>
+        </div>
+        <div className={styles.name}>
+          <textarea
+            id="o_nama"
+            type="text"
+            placeholder="O nama"
+            value={oNama}
+            onChange={(e) => setONama(e.target.value)}
+            className={styles.formField}
+          />
+          <label htmlFor="o_nama" className={styles.label}>
+            Opišite sebe u par rečenica
           </label>
         </div>
         {/*  SLIKA UPLATNICE

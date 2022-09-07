@@ -111,6 +111,7 @@ const Form = (props) => {
         return { ...prevState, city: false };
       });
     }
+    console.log(errors);
   };
 
   const allAreFalse = (arr) => {
@@ -127,6 +128,7 @@ const Form = (props) => {
         return { ...prevState, genres: false };
       });
     }
+    console.log(errors);
   };
 
   const validateInstruments = () => {
@@ -139,6 +141,7 @@ const Form = (props) => {
         return { ...prevState, instruments: false };
       });
     }
+    console.log(errors);
   };
 
   const validateTelephone = () => {
@@ -151,6 +154,7 @@ const Form = (props) => {
         return { ...prevState, telephone: false };
       });
     }
+    console.log(errors);
   };
 
   const validate = () => {
@@ -178,6 +182,7 @@ const Form = (props) => {
       return obj;
     });
     validateGenres();
+    console.log(errors);
   };
 
   const handleInstruments = (term) => {
@@ -220,7 +225,6 @@ const Form = (props) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className={styles.formField}
-            required={true}
           />
           <label htmlFor="name" className={styles.label}>
             Naziv izvođača

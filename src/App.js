@@ -12,6 +12,7 @@ import Group from "./Components/Group";
 import Form from "./Components/Form";
 import Filter from "./Components/Filter";
 import About from "./Components/About";
+import Register from "./Components/Register";
 
 function App() {
   const [acoustic, setAcoustic] = useState([]);
@@ -188,7 +189,7 @@ function App() {
               <Route
                 exact
                 path="/form"
-                element={<Form genres={genres} instruments={instruments} />}
+                element={<Register genres={genres} instruments={instruments} />}
               ></Route>
               <Route
                 exact

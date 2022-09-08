@@ -24,13 +24,17 @@ const CityInput = (props) => {
     "Tuzi",
     "Gusinje",
     "Plav",
+    "Zeta",
+    "Andrijevica",
+    "Mojkovac",
+    "Rožaje",
   ];
-  const [city, setCity] = useState("");
+
+  const errorMessage = "Odakle nam dolazite?";
 
   const handleOnSubmit = (term) => {
     if (cities.includes(term)) {
       props.handleCity(term);
-      setCity(term);
     }
   };
 
@@ -48,8 +52,10 @@ const CityInput = (props) => {
           inputClass={styles.inputClass}
           suggestionListClass={styles.suggestionClass}
           minLength={3}
+          required
         />
       </div>
+      <span>{!props.valid && props.focused ? errorMessage : null}</span>
     </div>
   );
 };

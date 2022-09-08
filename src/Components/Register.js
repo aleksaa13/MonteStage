@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import FormInput from "./FormInput";
+import CityInput from "./CItyInput";
+import AutoComplete from "./AutoComplete";
+import styles from "./Styles/Register.module.css";
 
 const Register = (props) => {
   const [values, setValues] = useState({
@@ -9,6 +12,7 @@ const Register = (props) => {
     about: "",
     ig_link: "",
     fb_link: "",
+    city: "",
   });
 
   const inputs = [
@@ -33,12 +37,14 @@ const Register = (props) => {
     },
     {
       id: 3,
-      name: "ig_link",
+      name: "city",
       type: "text",
-      placeholder: "Instagram",
-      errorMessage: "Desila se greska",
-      label: "Instagram",
-      required: false,
+      placeholder: "Odakle nam dolazite?",
+      errorMessage: "City Greska",
+      label: "Grad",
+      pattern:
+        "^(Budva|Podgorica|Cetinje|Kotor|Niksic|Nikšić|Gusinje|Petnjica|Andrijevica|Plav|Savnik|Šavnik|Tivat|Budva|Herceg Novi|Bijelo Polje|Berane|Bar|Ulcinj|Danilovgrad|Gusinje|Mojkovac|Kolasin|Kolašin|Zabljak|Žabljak|Pluzine|Plužine|Pljevlja|Rozaje|Rožaje|Zeta|Tuzi)$",
+      required: true,
     },
     {
       id: 4,
@@ -53,17 +59,30 @@ const Register = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("ides");
+    // if (cityValid()) {
+    //   // uradi nesto
+    //   console.log("ides");
+    // }
   };
+
+  // const cityValid = () => {
+  //   if (values.city === "") {
+  //     return false;
+  //   } else return true;
+  // };
+
+  // const handleCity = (term) => {
+  //   setValues({ ...values, city: term });
+  // };
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  console.log(values);
-
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.formStyle}>
         {inputs.map((input) => {
           return (
             <FormInput
@@ -74,7 +93,36 @@ const Register = (props) => {
             />
           );
         })}
-
+        {/* <CityInput handleCity={(term) => handleCity(term)} /> */}
+        {/* <AutoComplete
+          handleCity={handleCity}
+          suggestions={[
+            "Podgorica",
+            "Mojkovac",
+            "Kolašin",
+            "Žabljak",
+            "Pljevlja",
+            "Tivat",
+            "Petnjica",
+            "Kotor",
+            "Šavnik",
+            "Herceg Novi",
+            "Budva",
+            "Cetinje",
+            "Nikšić",
+            "Berane",
+            "Bijelo Polje",
+            "Ulcinj",
+            "Bar",
+            "Tuzi",
+            "Gusinje",
+            "Plav",
+            "Zeta",
+            "Andrijevica",
+            "Mojkovac",
+            "Rožaje",
+          ]}
+        /> */}
         <button>Submit</button>
       </form>
     </div>

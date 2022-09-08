@@ -17,3 +17,12 @@ input:invalid[focused="true"] ~ .errorMessage{
 input:invalid[focused="true"]{
     border:1px solid red;
 }
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.formStyle{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}

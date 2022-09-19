@@ -1,0 +1,61 @@
+.dropdownCheckList {
+    display: inline-block;
+  }
+
+  .anchor {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #48473B;
+    color: #007662;
+    margin-bottom:15px;
+  }
+  
+.anchor:after {
+    position: absolute;
+    content: "";
+    border-left: 2px solid #48473B;
+    border-top: 2px solid #48473B;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+  
+.anchor:active:after {
+    right: 8px;
+    top: 21%;
+  }
+
+.genresListWrapper{
+  margin-top:0.5px;
+  border:2px solid #48473B;
+  margin-bottom:15px;
+}
+
+.invisible{
+    display:none;
+}
+
+.items{
+    list-style: none;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    background-color:white;
+    margin:0;
+  }
+  
+  .item{
+    color:black;
+  }
+
+  .errors{
+    font-size:10px;
+    color:red;
+  }

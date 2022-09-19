@@ -7,12 +7,13 @@ const AutoComplete = (props) => {
   const [isShow, setIsShow] = useState(false);
   const [input, setInput] = useState("");
   const [focused, setFocused] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
-  const errorMessage = "Odakle nam dolazite?";
-  const label = "Grad";
+  const errorMessage = "Unesite makar jedan instrument";
+  const label = "Instrumenti";
 
   const handleFocus = () => {
-    setFocused(true);
+    setClicked(true);
   };
 
   const onChange = (e) => {
@@ -31,7 +32,7 @@ const AutoComplete = (props) => {
     setFiltered([]);
     setIsShow(false);
     setInput(e.currentTarget.innerText);
-    props.handleCity(e.currentTarget.innerText);
+    props.addInstruments(e.currentTarget.innerText);
   };
   const onKeyDown = (e) => {
     if (e.keyCode === 13) {
@@ -87,7 +88,26 @@ const AutoComplete = (props) => {
         onBlur={handleFocus}
       />
       {renderAutocomplete()}
-      <span className={styles.errorMessage}>{errorMessage}</span>
+      <span className={styles.errorMessage}>
+        {props.instruments.length === 0 && clicked ? errorMessage : null}
+      </span>
+      <br></br>
+
+      <div>
+        {props.instruments.map((ins) => {
+          return (
+            <p key={ins}>
+              <span className={styles.ins}>{ins}</span>
+              <span
+                className={styles.removeInstrument}
+                onClick={(term) => props.removeInstrument(ins)}
+              >
+                -
+              </span>
+            </p>
+          );
+        })}
+      </div>
     </>
   );
 };

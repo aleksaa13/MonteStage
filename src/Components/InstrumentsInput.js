@@ -26,7 +26,7 @@ const InstrumentsInput = (props) => {
         />
       </div>
 
-      <div className={styles.activeInstruments}>
+      <div>
         {props.instruments.map((ins) => {
           return (
             <p key={ins}>

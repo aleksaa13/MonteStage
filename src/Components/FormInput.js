@@ -19,6 +19,7 @@ const FormInput = (props) => {
         onChange={onChange}
         className={styles.formInputField}
         onBlur={handleFocus}
+        min="1"
       />
       <span className={styles.errorMessage}>{errorMessage}</span>
     </div>

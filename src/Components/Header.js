@@ -7,6 +7,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faIdCard } from "@fortawesome/free-solid-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import image from "../images/0.png";
 
 const Header = () => {
@@ -38,6 +39,22 @@ const Header = () => {
         <div className={dropdown ? styles.list : styles.invisible}>
           <nav>
             <ul>
+              <li className={styles.link} onClick={toggle}>
+                <NavLink
+                  exact
+                  to="/contact"
+                  activeStyle={{
+                    fontWeight: "bold",
+                    textDecoration: "underline",
+                  }}
+                >
+                  <span>
+                    <FontAwesomeIcon icon={faMessage} className={styles.icon} />
+                  </span>
+                  Kontakt
+                </NavLink>
+              </li>
+
               <li className={styles.link} onClick={toggle}>
                 <NavLink
                   exact

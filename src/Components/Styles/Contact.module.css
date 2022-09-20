@@ -1,0 +1,56 @@
+.contact {
+    width: 100%;
+    /* background: rgba(0, 32, 57, 0.9); */
+    /* background-color: #16678f; */
+    display: flex;
+    flex-direction: row;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+.bigContainer{
+    width:50%;
+   display:flex;
+   flex-direction:column;
+   align-items: center;
+   justify-content: center;
+   
+}
+
+  .container {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin: 0 15px;
+    
+    margin-bottom:10px;
+  }
+  
+  .send {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    margin-top:5px;
+    border:1px solid black;
+    border-radius:15px;
+    padding:5px;
+  }
+  
+  .black {
+    color: black;
+    margin-bottom:10px;
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .footer {
+      display: inline-block;
+    }
+    .container {
+      width: 69%;
+    }
+  }
+  

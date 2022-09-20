@@ -34,6 +34,16 @@ const Group = (props) => {
                 </span>
               </div>
             ) : null}
+            {group[0].genres ? (
+              <div className={styles.markWrapper}>
+                <span className={styles.mark}>Zanrovi : </span>
+                <span className={styles.value}>
+                  {group[0].genres.map((genre) => {
+                    return <span>{`${genre}   `}</span>;
+                  })}
+                </span>
+              </div>
+            ) : null}
             <div className={styles.markWrapper}>
               <span className={styles.mark}>Grad : </span>
               <span className={styles.value}>{group[0].grad}</span>

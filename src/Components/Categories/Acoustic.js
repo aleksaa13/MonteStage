@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Styles/Acoustic.module.css";
+import styles from "../Styles/Acoustic.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Acoustic = (props) => {

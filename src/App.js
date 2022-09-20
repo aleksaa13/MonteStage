@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { db } from "./firebase.config";
 import Home from "./Components/Home";
-import Vocal from "./Components/Vocal";
-import Acoustic from "./Components/Acoustic";
-import Band from "./Components/Band";
+import Vocal from "./Components/Categories/Vocal";
+import Acoustic from "./Components/Categories/Acoustic";
+import Dj from "./Components/Categories/Dj";
+import Band from "./Components/Categories/Band";
 import Header from "./Components/Header";
 import WebFont from "webfontloader";
 import Group from "./Components/Group";
@@ -13,6 +14,8 @@ import Form from "./Components/Form";
 import Filter from "./Components/Filter";
 import About from "./Components/About";
 import Register from "./Components/Register";
+import Footer from "./Components/Footer";
+import Contact from "./Components/Contact";
 
 function App() {
   const [acoustic, setAcoustic] = useState([]);
@@ -213,11 +216,7 @@ function App() {
                 path="solo/:id"
                 element={<Group groups={[...solo]} />}
               />
-              <Route
-                exact
-                path="/dj"
-                element={<Acoustic groups={[...dj]} />}
-              ></Route>
+              <Route exact path="/dj" element={<Dj groups={[...dj]} />}></Route>
               <Route exact path="dj/:id" element={<Group groups={[...dj]} />} />
               <Route
                 exact
@@ -241,8 +240,10 @@ function App() {
                   />
                 }
               />
+              <Route exact path="/contact" element={<Contact />} />
             </Routes>
           </div>
+          <Footer />
         </Router>
       </React.Fragment>
     </div>

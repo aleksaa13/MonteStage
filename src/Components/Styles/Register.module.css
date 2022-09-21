@@ -1,11 +1,5 @@
-.formInputField{
-    padding:15px;
-    margin:10px 0px;
-}
-
 .errorMessage{
-    font-size:12px;
-    padding:3px;
+    font-size:10px;
     color:red;
     display:none;
 }
@@ -13,11 +7,6 @@
 input:invalid[focused="true"] ~ .errorMessage{
     display:block;
 }
-
-input:invalid[focused="true"]{
-    border:1px solid red;
-}
-
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .formStyle{
@@ -25,6 +14,7 @@ input:invalid[focused="true"]{
     flex-direction:column;
     align-items:center;
     justify-content: center;
+    margin-bottom:75px;
 }
 
 .fileInputContainer{
@@ -50,4 +40,63 @@ input:invalid[focused="true"]{
     font-size: 16px;
     font-weight: bold;
     color: #48473B;
+  }
+
+  .name{
+    position:relative;
+    margin-bottom:15px;
+    width:50%;
+    padding:5px;
+
+  }
+  
+  .formField {
+    border: 0;
+    border-bottom: 2px solid #48473B;
+    outline: 0;
+    font-size: 15px;
+    color: #007662;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    width:70%;
+    margin:auto;
+    padding-bottom:0;
+  }
+  .formField::placeholder {
+      color:transparent;
+  }
+  
+  .label {
+    position: absolute;
+    top: -7px;
+    left:15%;
+    display: block;
+    transition: 0.2s;
+    font-size: 9px;
+    color: #007662;
+  }
+  
+  .formField:placeholder-shown ~ .label {
+      font-size: 15px;
+      cursor: text;
+      top: 9px;
+      
+    }
+  
+  .formField:focus ~ .label {
+      position: absolute;
+      top: -7px;
+      display: block;
+      transition: 0.2s;
+      font-size: 9px;
+      color: #00C9AF;
+      font-weight:700;    
+  }
+  .formField:focus{
+    padding-bottom: 6px;  
+    font-weight: 500;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #00C9AF,#007662);
+    border-image-slice: 1;
   }

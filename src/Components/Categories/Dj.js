@@ -16,7 +16,7 @@ const Dj = (props) => {
             <div
               className={styles.cardWrap}
               style={{
-                backgroundImage: `url(images/vocal_groups/${group.imageId}.jpg)`,
+                backgroundImage: `url(images/dj/${group.imageId}.jpg)`,
               }}
             >
               <strong

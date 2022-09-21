@@ -2,6 +2,10 @@
     border: 1px solid #999;
     padding: 8px;
     width: 300px;
+    background-color: #ECEBDC;
+  }
+  .input:focus{
+    border: 3px solid  #007662;
   }
   .noAutocomplete {
     color: #999;
@@ -22,8 +26,9 @@
   }
   .autocomplete > .active,
   .autocomplete li:hover {
-    background-color: darkgray;
+    /* background-color: #48473B; */
     cursor: pointer;
+    color:#007662;
     font-weight: 700;
   }
   .autocomplete li:not(:last-of-type) {
@@ -33,4 +38,22 @@
   .errorMessage{
     font-size:10px;
     color:red;
+  }
+
+  .autoCompleteLabel{
+    color:#007662;
+  }
+
+  .insWrap{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    margin:10px 0px;
+  }
+
+  .removeInstrument{
+    color:red;
+    cursor:pointer;
+    margin-left:10px;
+    
   }

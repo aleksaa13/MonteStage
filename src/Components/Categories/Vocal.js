@@ -7,7 +7,7 @@ const Vocal = (props) => {
   return (
     <div className={styles.acoustic}>
       {props.groups.length === 0 ? (
-        <h1>NEMAA</h1>
+        <h1>Došlo je do greške pri učitavanju sastava iz ove kategorije</h1>
       ) : (
         props.groups.map((group) => {
           return (

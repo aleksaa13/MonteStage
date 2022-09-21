@@ -35,7 +35,7 @@ const Genres = (props) => {
           <ul className={styles.items}>
             {props.genres.map((genre) => {
               return (
-                <li className={styles.item}>
+                <li className={styles.item} key={genre}>
                   <input
                     id={genre}
                     type="checkbox"

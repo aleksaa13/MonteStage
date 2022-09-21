@@ -27,11 +27,16 @@ const Form = (props) => {
     Starogradska: false,
     Tehno: false,
     Folk: false,
-    Elektronska: false,
     Blues: false,
     Jazz: false,
     Metal: false,
     Funk: false,
+    Psytrance: false,
+    House: false,
+    EDM: false,
+    Etno: false,
+    Klasicna: false,
+    Evergreen: false,
   });
   const [errors, setErrors] = useState({
     instruments: false,

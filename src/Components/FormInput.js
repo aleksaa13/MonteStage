@@ -10,17 +10,17 @@ const FormInput = (props) => {
   };
 
   return (
-    <div className={styles.formInput}>
-      <label>{label}</label>
+    <div className={styles.name}>
       <input
         focused={focused.toString()}
         required={required}
         {...inputProps}
         onChange={onChange}
-        className={styles.formInputField}
+        className={styles.formField}
         onBlur={handleFocus}
         min="1"
       />
+      <label className={styles.label}>{label}</label>
       <span className={styles.errorMessage}>{errorMessage}</span>
     </div>
   );

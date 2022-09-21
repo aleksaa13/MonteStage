@@ -49,10 +49,13 @@
     align-items:flex-start;
     background-color:white;
     margin:0;
+    padding:7px;
+    background-color: #ECEBDC;
   }
   
   .item{
-    color:black;
+    color:#48473B;
+    
   }
 
   .errors{

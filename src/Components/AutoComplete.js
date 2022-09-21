@@ -78,7 +78,7 @@ const AutoComplete = (props) => {
   };
   return (
     <>
-      <label>{label}</label>
+      <label className={styles.autoCompleteLabel}>{label}</label>
       <input
         className={styles.input}
         type="text"
@@ -86,6 +86,7 @@ const AutoComplete = (props) => {
         onKeyDown={onKeyDown}
         value={input}
         onBlur={handleFocus}
+        placeholder="Unesite instrument"
       />
       {renderAutocomplete()}
       <span className={styles.errorMessage}>
@@ -96,15 +97,15 @@ const AutoComplete = (props) => {
       <div>
         {props.instruments.map((ins) => {
           return (
-            <p key={ins}>
+            <div key={ins} className={styles.insWrap}>
               <span className={styles.ins}>{ins}</span>
               <span
                 className={styles.removeInstrument}
                 onClick={(term) => props.removeInstrument(ins)}
               >
-                -
+                x
               </span>
-            </p>
+            </div>
           );
         })}
       </div>

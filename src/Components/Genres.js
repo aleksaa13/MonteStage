@@ -15,16 +15,13 @@ const Genres = (props) => {
     setDropdownVisible((prev) => {
       return !prev;
     });
+    handleClicked();
   };
 
   return (
     <div className={styles.genre}>
       <div id="list1" className={styles.dropdownCheckList} tabIndex="100">
-        <span
-          className={styles.anchor}
-          onClick={handleDropdownClick}
-          onBlur={handleClicked}
-        >
+        <span className={styles.anchor} onClick={handleDropdownClick}>
           Žanrovi
         </span>
         <div
@@ -49,8 +46,8 @@ const Genres = (props) => {
           </ul>
         </div>
       </div>
-      <span className={styles.errors}>
-        {Object.values(props.genres).every((v) => v === false) && clicked
+      <span className={styles.error}>
+        {props.genresValues.every((v) => v === false) && clicked
           ? errorMessage
           : null}
       </span>

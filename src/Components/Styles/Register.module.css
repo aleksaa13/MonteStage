@@ -4,6 +4,11 @@
     display:none;
 }
 
+.error{
+  font-size:10px;
+    color:red;
+}
+
 input:invalid[focused="true"] ~ .errorMessage{
     display:block;
 }
@@ -36,9 +41,9 @@ input:invalid[focused="true"] ~ .errorMessage{
     padding: 12px 18px;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #00C9AF;
+    background:transparent;
     font-size: 16px;
-    font-weight: bold;
+    box-shadow: #48473B 0px 5px 15px;
     color: #48473B;
   }
 
@@ -99,4 +104,19 @@ input:invalid[focused="true"] ~ .errorMessage{
     border-width: 3px;
     border-image: linear-gradient(to right, #00C9AF,#007662);
     border-image-slice: 1;
+  }
+
+  .submit{
+    margin-top:30px;
+    padding:17px;
+    border-radius:15px;
+    font-size: 17px;
+    background-color: #00C9AF;
+    border:1px solid #00C9AF;
+    font-size: 20px;
+    font-weight: bold;
+    color: #48473B;
+    cursor:pointer;
+    font-family:sansita;
+    font-weight:bold;
   }

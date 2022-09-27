@@ -89,7 +89,7 @@ const AutoComplete = (props) => {
         placeholder="Unesite instrument"
       />
       {renderAutocomplete()}
-      <span className={styles.errorMessage}>
+      <span className={styles.error}>
         {props.instruments.length === 0 && clicked ? errorMessage : null}
       </span>
       <br></br>

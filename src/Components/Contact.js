@@ -42,7 +42,7 @@ const Contact = () => {
           </p>
         </div>
         <div className={styles.container}>
-          <label htmlFor="subject">Predmet</label>
+          <label htmlFor="subject">Naslov</label>
           <input
             className={styles.black}
             value={subject}
@@ -54,7 +54,8 @@ const Contact = () => {
 
           <label htmlFor="poruka">Poruka</label>
           <textarea
-            className={styles.black}
+            rows="8"
+            className={styles.tArea}
             value={poruka}
             onChange={(e) => setPoruka(e.target.value)}
             id="poruka"

@@ -58,7 +58,13 @@
     
   }
 
-  .errors{
+  .error{
     font-size:10px;
-    color:red;
+      color:red;
+  }
+
+  .genre{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:15px;
   }

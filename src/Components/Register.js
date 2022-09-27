@@ -51,9 +51,9 @@ const Register = (props) => {
       id: 1,
       name: "imeBenda",
       type: "text",
-      placeholder: "Ime Benda",
+      placeholder: "Naziv izvođača",
       errorMessage: "Unesite validno ime benda (2-16 karaktera)",
-      label: "Ime Benda",
+      label: "Naziv izvođača",
       pattern: "^[A-Za-z0-9]{2,16}$",
       required: true,
     },
@@ -71,7 +71,7 @@ const Register = (props) => {
       name: "city",
       type: "text",
       placeholder: "Odakle nam dolazite?",
-      errorMessage: "City Greska",
+      errorMessage: "Unesite crnogorski grad",
       label: "Grad",
       pattern:
         "^(Budva|Podgorica|Cetinje|Kotor|Niksic|Nikšić|Gusinje|Petnjica|Andrijevica|Plav|Savnik|Šavnik|Tivat|Budva|Herceg Novi|Bijelo Polje|Berane|Bar|Ulcinj|Danilovgrad|Gusinje|Mojkovac|Kolasin|Kolašin|Zabljak|Žabljak|Pluzine|Plužine|Pljevlja|Rozaje|Rožaje|Zeta|Tuzi)$",
@@ -190,7 +190,11 @@ const Register = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className={styles.formStyle}>
-        <Genres handleCheckbox={handleCheckbox} genres={Object.keys(genres)} />
+        <Genres
+          handleCheckbox={handleCheckbox}
+          genres={Object.keys(genres)}
+          genresValues={Object.values(genres)}
+        />
         <AutoComplete
           instruments={instruments}
           addInstruments={addInstruments}
@@ -235,7 +239,7 @@ const Register = (props) => {
             Vaša slika
           </label>
           <input
-            onClick={setSlikaBendaClicked}
+            onClick={handleSlikaBendaClick}
             id="slika"
             className={styles.fileInput}
             type="file"
@@ -243,12 +247,12 @@ const Register = (props) => {
               setSlikaBenda(e.target.files[0]);
             }}
           />
-          <div className={styles.errorMessage}>
+          <div className={styles.error}>
             {slikaBenda === "" && slikaBendaClicked ? "Nema slike" : null}
           </div>
         </div>
 
-        <button>Submit</button>
+        <button className={styles.submit}>Registrujte se</button>
       </form>
     </div>
   );

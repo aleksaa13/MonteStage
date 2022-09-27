@@ -13,9 +13,12 @@
 .bigContainer{
     width:50%;
    display:flex;
-   flex-direction:column;
+   flex-direction:row;
    align-items: center;
    justify-content: center;
+   box-shadow: #48473B 0px 5px 15px;
+   margin-top:50px;
+   justify-content: space-around;
    
 }
 
@@ -38,6 +41,11 @@
     border:1px solid black;
     border-radius:15px;
     padding:5px;
+  }
+
+  .tArea{
+    color:black;
+    
   }
   
   .black {

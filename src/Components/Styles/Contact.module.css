@@ -60,5 +60,9 @@
     .container {
       width: 69%;
     }
+    .bigContainer{
+      flex-direction:column;
+      width:80%;
+    }
   }
   

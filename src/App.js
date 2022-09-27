@@ -5,6 +5,7 @@ import { db } from "./firebase.config";
 import Home from "./Components/Home";
 import Vocal from "./Components/Categories/Vocal";
 import Acoustic from "./Components/Categories/Acoustic";
+
 import Dj from "./Components/Categories/Dj";
 import Band from "./Components/Categories/Band";
 import VIS from "./Components/Categories/VIS";
@@ -27,6 +28,7 @@ function App() {
   const [solo, setSolo] = useState([]);
   const [instrumental, setInstrumental] = useState([]);
   const [vis, setVis] = useState([]);
+
   const [all, setAll] = useState([]);
 
   let genres = [
@@ -114,6 +116,7 @@ function App() {
     let dj = [];
     let solo = [];
     let vis = [];
+    let produkcije = [];
     let rest = [];
     let instrumental = [];
     let allPerformers = [];
@@ -133,6 +136,7 @@ function App() {
         case "vocal_groups":
           voc.push(item.data());
           return null;
+
         case "solo":
           solo.push(item.data());
           return null;
@@ -150,6 +154,7 @@ function App() {
     setAcoustic([...acc]);
     setVocal_groups([...voc]);
     setBand([...band]);
+
     setDj([...dj]);
     setSolo([...solo]);
     setInstrumental([...instrumental]);

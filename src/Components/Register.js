@@ -20,7 +20,9 @@ const Register = (props) => {
     yt_link_2: "",
   });
 
+  const [instrumentsClicked, setInstrumentsClicked] = useState(false);
   const [slikaBenda, setSlikaBenda] = useState("");
+  const [genresClicked, setGenresClicked] = useState(false);
   const [instruments, setInstruments] = useState([]);
   const [genres, setGenres] = useState({
     Pop: false,
@@ -39,10 +41,17 @@ const Register = (props) => {
     Etno: false,
     Klasicna: false,
     Evergreen: false,
+    HipHop: false,
   });
 
   const [slikaBendaClicked, setSlikaBendaClicked] = useState(false);
   const handleSlikaBendaClick = () => {
+    setSlikaBendaClicked(true);
+  };
+
+  const setAllClicked = () => {
+    setGenresClickedTrue();
+    setInstrumentsClickedTrue();
     setSlikaBendaClicked(true);
   };
 
@@ -187,15 +196,27 @@ const Register = (props) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const setGenresClickedTrue = () => {
+    setGenresClicked(true);
+  };
+
+  const setInstrumentsClickedTrue = () => {
+    setInstrumentsClicked(true);
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit} className={styles.formStyle}>
         <Genres
+          setGenresClicked={setGenresClickedTrue}
+          clicked={genresClicked}
           handleCheckbox={handleCheckbox}
           genres={Object.keys(genres)}
           genresValues={Object.values(genres)}
         />
         <AutoComplete
+          setInstrumentsClicked={setInstrumentsClickedTrue}
+          clicked={instrumentsClicked}
           instruments={instruments}
           addInstruments={addInstruments}
           removeInstrument={removeInstrument}
@@ -239,6 +260,7 @@ const Register = (props) => {
             Vaša slika
           </label>
           <input
+            accept="image/*"
             onClick={handleSlikaBendaClick}
             id="slika"
             className={styles.fileInput}
@@ -252,7 +274,9 @@ const Register = (props) => {
           </div>
         </div>
 
-        <button className={styles.submit}>Registrujte se</button>
+        <button className={styles.submit} onClick={setAllClicked}>
+          Registrujte se
+        </button>
       </form>
     </div>
   );

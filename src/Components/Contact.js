@@ -23,7 +23,7 @@ const Contact = () => {
           </p>
           <p>
             <FontAwesomeIcon icon={faPhone} style={{ color: "black" }} />{" "}
-            +38269432995
+            +38269647354
           </p>
           <p>
             <a href="https://www.instagram.com/montestage/" target="blank">

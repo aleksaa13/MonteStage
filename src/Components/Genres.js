@@ -3,12 +3,12 @@ import styles from "./Styles/Genres.module.css";
 
 const Genres = (props) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [clicked, setClicked] = useState(false);
 
   const errorMessage = "Izaberite makar jedan zanr";
 
   const handleClicked = () => {
-    setClicked(true);
+    props.setGenresClicked();
+    console.log(props.clicked);
   };
 
   const handleDropdownClick = (e) => {
@@ -47,7 +47,7 @@ const Genres = (props) => {
         </div>
       </div>
       <span className={styles.error}>
-        {props.genresValues.every((v) => v === false) && clicked
+        {props.genresValues.every((v) => v === false) && props.clicked
           ? errorMessage
           : null}
       </span>

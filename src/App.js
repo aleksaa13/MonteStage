@@ -7,6 +7,7 @@ import Vocal from "./Components/Categories/Vocal";
 import Acoustic from "./Components/Categories/Acoustic";
 import Dj from "./Components/Categories/Dj";
 import Band from "./Components/Categories/Band";
+import VIS from "./Components/Categories/VIS";
 import Header from "./Components/Header";
 import WebFont from "webfontloader";
 import Group from "./Components/Group";
@@ -25,6 +26,7 @@ function App() {
   const [dj, setDj] = useState([]);
   const [solo, setSolo] = useState([]);
   const [instrumental, setInstrumental] = useState([]);
+  const [vis, setVis] = useState([]);
   const [all, setAll] = useState([]);
 
   let genres = [
@@ -44,6 +46,7 @@ function App() {
     "Etno/Izvorna",
     "Klasična",
     "Evergreen",
+    "HipHop",
   ];
 
   const instruments = [
@@ -110,6 +113,7 @@ function App() {
     let band = [];
     let dj = [];
     let solo = [];
+    let vis = [];
     let rest = [];
     let instrumental = [];
     let allPerformers = [];
@@ -122,6 +126,9 @@ function App() {
           return null;
         case "band":
           band.push(item.data());
+          return null;
+        case "vis":
+          vis.push(item.data());
           return null;
         case "vocal_groups":
           voc.push(item.data());
@@ -148,6 +155,7 @@ function App() {
     setInstrumental([...instrumental]);
     setOStalo([...rest]);
     setAll([...allPerformers]);
+    setVis([...vis]);
   };
 
   return (
@@ -179,6 +187,16 @@ function App() {
                 path="vocal_groups/:id"
                 element={<Group groups={[...vocal_groups]} />}
               />
+              <Route
+                exact
+                path="acoustic/:id"
+                element={<VIS groups={[...vis]} />}
+              />
+              <Route
+                exact
+                path="/vis"
+                element={<VIS groups={[...vis]} />}
+              ></Route>
               <Route
                 exact
                 path="/band"

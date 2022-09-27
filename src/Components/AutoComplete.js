@@ -6,14 +6,12 @@ const AutoComplete = (props) => {
   const [filtered, setFiltered] = useState([]);
   const [isShow, setIsShow] = useState(false);
   const [input, setInput] = useState("");
-  const [focused, setFocused] = useState(false);
-  const [clicked, setClicked] = useState(false);
 
   const errorMessage = "Unesite makar jedan instrument";
   const label = "Instrumenti";
 
   const handleFocus = () => {
-    setClicked(true);
+    props.setInstrumentsClicked();
   };
 
   const onChange = (e) => {
@@ -90,7 +88,7 @@ const AutoComplete = (props) => {
       />
       {renderAutocomplete()}
       <span className={styles.error}>
-        {props.instruments.length === 0 && clicked ? errorMessage : null}
+        {props.instruments.length === 0 && props.clicked ? errorMessage : null}
       </span>
       <br></br>
 

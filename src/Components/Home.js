@@ -45,6 +45,11 @@ const Home = (props) => {
             <Link to="/dj">DJ</Link>
           </strong>
         </div>
+        <div className={styles.card} style={{ backgroundImage: `url(${dj})` }}>
+          <strong>
+            <Link to="/vis">VIS</Link>
+          </strong>
+        </div>
         <div
           className={styles.card}
           style={{ backgroundImage: `url(${vocal})` }}

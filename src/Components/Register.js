@@ -63,7 +63,6 @@ const Register = (props) => {
       placeholder: "Naziv izvođača",
       errorMessage: "Unesite validno ime benda (2-16 karaktera)",
       label: "Naziv izvođača",
-      pattern: "^[A-Za-z0-9]{2,16}$",
       required: true,
     },
     {

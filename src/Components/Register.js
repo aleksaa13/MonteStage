@@ -69,9 +69,9 @@ const Register = (props) => {
       id: 2,
       name: "email",
       type: "email",
-      placeholder: "email",
+      placeholder: "Email",
       errorMessage: "E-mail adresa nije validnog formata",
-      label: "email",
+      label: "Email",
       required: true,
     },
     {

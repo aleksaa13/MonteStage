@@ -11,71 +11,60 @@ import ostalo from "../images/ostalo.jpg";
 
 const Home = (props) => {
   return (
-    <React.Fragment>
-      <div className={styles.home}>
-        <div
-          className={styles.card}
-          style={{ backgroundImage: `url(${band})` }}
-        >
-          <strong>
-            <Link to="/band">Bendovi</Link>
-          </strong>
-        </div>
-        <div
-          className={styles.card}
-          style={{ backgroundImage: `url(${acoustic})` }}
-        >
-          <strong>
-            {" "}
-            <Link exact to="/acoustic">
-              Akustični bendovi
-            </Link>
-          </strong>
-        </div>
-        <div
-          className={styles.card}
-          style={{ backgroundImage: `url(${solo})` }}
-        >
-          <strong>
-            <Link to="/solo">Solo</Link>
-          </strong>
-        </div>
-        <div className={styles.card} style={{ backgroundImage: `url(${dj})` }}>
-          <strong>
-            <Link to="/dj">DJ</Link>
-          </strong>
-        </div>
-        <div className={styles.card} style={{ backgroundImage: `url(${dj})` }}>
-          <strong>
-            <Link to="/vis">VIS</Link>
-          </strong>
-        </div>
-        <div
-          className={styles.card}
-          style={{ backgroundImage: `url(${vocal})` }}
-        >
-          <strong>
-            <Link to="/vocal_groups">Vokalni sastavi</Link>
-          </strong>
-        </div>
-        <div
-          className={styles.card}
-          style={{ backgroundImage: `url(${instrumental})` }}
-        >
-          <strong>
-            <Link to="/instrumental">Instrumental</Link>
-          </strong>
-        </div>
-        <div
-          className={styles.card}
-          style={{ backgroundImage: `url(${ostalo})` }}
-        >
-          <strong>
-            <Link to="/ostalo">Ostalo</Link>
-          </strong>
-        </div>
+    <div className={styles.home}>
+      <div className={styles.card} style={{ backgroundImage: `url(${band})` }}>
+        <strong>
+          <Link to="/band">Bendovi</Link>
+        </strong>
       </div>
-    </React.Fragment>
+      <div
+        className={styles.card}
+        style={{ backgroundImage: `url(${acoustic})` }}
+      >
+        <strong>
+          {" "}
+          <Link exact to="/acoustic">
+            Akustični bendovi
+          </Link>
+        </strong>
+      </div>
+      <div className={styles.card} style={{ backgroundImage: `url(${solo})` }}>
+        <strong>
+          <Link to="/solo">Solo</Link>
+        </strong>
+      </div>
+      <div className={styles.card} style={{ backgroundImage: `url(${dj})` }}>
+        <strong>
+          <Link to="/dj">DJ</Link>
+        </strong>
+      </div>
+      {/* <div className={styles.card} style={{ backgroundImage: `url(${dj})` }}>
+        <strong>
+          <Link to="/vis">VIS</Link>
+        </strong>
+      </div> */}
+      <div className={styles.card} style={{ backgroundImage: `url(${vocal})` }}>
+        <strong>
+          <Link to="/vocal_groups">Vokalni sastavi</Link>
+        </strong>
+      </div>
+      <div
+        className={styles.card}
+        style={{ backgroundImage: `url(${instrumental})` }}
+      >
+        <strong>
+          <Link to="/instrumental">Instrumental</Link>
+        </strong>
+      </div>
+      <div
+        className={styles.card}
+        style={{ backgroundImage: `url(${ostalo})` }}
+      >
+        <strong>
+          <Link to="/ostalo">Ostalo</Link>
+        </strong>
+      </div>
+    </div>
   );
 };
 

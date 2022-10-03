@@ -1,9 +1,10 @@
 .footer{
     background-color:black;
     height:40px;
+    margin-top:40px;
     width:100%;
-    position:fixed;
-    bottom:0;
+    /* position:fixed;
+    bottom:0; */
 }
 
 .imgContainer {

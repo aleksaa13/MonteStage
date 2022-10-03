@@ -21,6 +21,9 @@
     background-color:#48473B;
 }
 
+.filterWrapper{
+    min-height:100vw;
+}
 
 /* ACCORDION */
 

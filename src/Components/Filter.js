@@ -54,7 +54,7 @@ const Filter = (props) => {
   };
 
   return (
-    <div>
+    <div className={styles.filterWrapper}>
       <Accordion allowZeroExpanded={true} className={styles.accordion}>
         <AccordionItem className={styles.accordion__item}>
           <AccordionItemHeading>

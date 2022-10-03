@@ -14,6 +14,7 @@ const VIS = (props) => {
         props.groups.map((group) => {
           return (
             <div
+              key={group.imageId}
               className={styles.cardWrap}
               style={{
                 backgroundImage: `url(images/dj/${group.imageId}.jpg)`,

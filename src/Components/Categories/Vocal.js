@@ -7,11 +7,14 @@ const Vocal = (props) => {
   return (
     <div className={styles.acoustic}>
       {props.groups.length === 0 ? (
-        <h1>Došlo je do greške pri učitavanju sastava iz ove kategorije</h1>
+        <p>
+          <i>Još uvijek nema registrovanih sastava iz ove katerogije</i>
+        </p>
       ) : (
         props.groups.map((group) => {
           return (
             <div
+              key={group.imageId}
               className={styles.cardWrap}
               style={{
                 backgroundImage: `url(images/vocal_groups/${group.imageId}.jpg)`,

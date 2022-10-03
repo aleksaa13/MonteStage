@@ -5,10 +5,10 @@ import ReactPlayer from "react-player";
 
 const Group = (props) => {
   const params = useParams();
-
+  console.log(props);
   //   console.log(props.groups.filter((group) => group.imageId == params.id));
   let group = props.groups.filter((group) => group.imageId === params.id);
-
+  console.log(group);
   return (
     <div className={styles.groupWrapper}>
       <h3 className={styles.name}>{group[0].name}</h3>
@@ -21,7 +21,7 @@ const Group = (props) => {
             <div className={styles.wrapperText}>Osnovne informacije</div>
 
             <div className={styles.markWrapper}>
-              <span className={styles.mark}>Broj clanova : </span>
+              <span className={styles.mark}>Broj članova : </span>
               <span className={styles.value}>{group[0].people}</span>
             </div>
             {group[0].instruments ? (
@@ -29,7 +29,7 @@ const Group = (props) => {
                 <span className={styles.mark}>Instrumenti : </span>
                 <span className={styles.value}>
                   {group[0].instruments.map((instrument) => {
-                    return <span>{`${instrument}   `}</span>;
+                    return <span key={instrument}>{`${instrument}  | `}</span>;
                   })}
                 </span>
               </div>
@@ -39,7 +39,7 @@ const Group = (props) => {
                 <span className={styles.mark}>Zanrovi : </span>
                 <span className={styles.value}>
                   {group[0].genres.map((genre) => {
-                    return <span>{`${genre}   `}</span>;
+                    return <span key={genre}>{`${genre}   `}</span>;
                   })}
                 </span>
               </div>
@@ -92,17 +92,24 @@ const Group = (props) => {
             <span className={styles.wrapperText}>Dodatne informacije</span>
             <div className={styles.markWrapper}>
               <span className={styles.mark}>O nama: </span>
-              <span className={styles.value}>{group[0].info}</span>
+              <span className={styles.infoValue}>{group[0].info}</span>
             </div>
           </div>
           <div className={styles.videos}>
-            {group[0].videoLink1.split(/[ ,]+/).map((link) => {
-              return (
-                <div className={styles.videoContainer}>
-                  <ReactPlayer url={link} width="100%" height="100%" />
-                </div>
-              );
-            })}
+            <div className={styles.videoContainer}>
+              <ReactPlayer
+                url={group[0].yt_link_1}
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div className={styles.videoContainer}>
+              <ReactPlayer
+                url={group[0].yt_link_2}
+                width="100%"
+                height="100%"
+              />
+            </div>
           </div>
         </div>
       </div>

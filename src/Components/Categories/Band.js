@@ -8,12 +8,13 @@ const Band = (props) => {
     <div className={styles.acoustic}>
       {props.groups.length === 0 ? (
         <p>
-          <i>Došlo je do greske pri učitavanju sastava iz ove kategorije</i>
+          <i>Još uvijek nema registrovanih sastava iz ove katerogije</i>
         </p>
       ) : (
         props.groups.map((group) => {
           return (
             <div
+              key={group.imageId}
               className={styles.cardWrap}
               style={{
                 backgroundImage: `url(images/band/${group.imageId}.jpg)`,

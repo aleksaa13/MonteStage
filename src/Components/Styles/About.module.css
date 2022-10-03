@@ -1,11 +1,9 @@
 .text{
     width:90%;
     margin:auto;
+    padding:0px 0px 30px 0px;
 }
 
-.aboutWrapper{
-    min-height:100vh;
-}
 
 @media only screen and (min-width: 550px) {
     .text{

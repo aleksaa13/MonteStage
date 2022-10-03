@@ -5,7 +5,7 @@ import { db } from "./firebase.config";
 import Home from "./Components/Home";
 import Vocal from "./Components/Categories/Vocal";
 import Acoustic from "./Components/Categories/Acoustic";
-
+import Solo from "./Components/Categories/Solo";
 import Dj from "./Components/Categories/Dj";
 import Band from "./Components/Categories/Band";
 import VIS from "./Components/Categories/VIS";
@@ -32,7 +32,7 @@ function App() {
   const [all, setAll] = useState([]);
 
   let genres = [
-    "Zabavna/Pop",
+    "Pop",
     "Rok",
     "Blues",
     "Jazz",
@@ -146,7 +146,7 @@ function App() {
         case "instrumental":
           instrumental.push(item.data());
           return null;
-        case "ostalo":
+        case "rest":
           ostalo.push(item.data());
           return null;
       }
@@ -232,7 +232,7 @@ function App() {
               <Route
                 exact
                 path="/solo"
-                element={<Acoustic groups={[...solo]} />}
+                element={<Solo groups={[...solo]} />}
               ></Route>
               <Route
                 exact

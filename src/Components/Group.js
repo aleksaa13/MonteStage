@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Styles/Group.module.css";
 import ReactPlayer from "react-player";
 
 const Group = (props) => {
   const params = useParams();
-  console.log(props);
+
+  useEffect(() => {
+    if (performance.navigation.type === 1) {
+      console.log("This page is reloaded");
+    } else {
+      console.log("This page is not reloaded");
+    }
+  });
+
   //   console.log(props.groups.filter((group) => group.imageId == params.id));
   let group = props.groups.filter((group) => group.imageId === params.id);
-  console.log(group);
+  console.log(props.groups.filter((group) => group.imageId === params.id));
+
   return (
     <div className={styles.groupWrapper}>
       <h3 className={styles.name}>{group[0].name}</h3>

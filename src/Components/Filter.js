@@ -20,7 +20,7 @@ const Filter = (props) => {
 
   const toggleActivity = (e) => {
     const [type, ...rest] = e.target.id.split(" ");
-    console.log(rest);
+
     let param;
     if (rest.length === 1) {
       param = rest[0];
@@ -171,7 +171,11 @@ const Filter = (props) => {
               <div
                 className={styles.cardWrap}
                 style={{
-                  backgroundImage: `url(images/${group.type}/${group.imageId}.jpg)`,
+                  backgroundImage: `url(images/${group.type}/${
+                    group.imageId_naslovna
+                      ? group.imageId_naslovna
+                      : group.imageId
+                  }.jpg)`,
                 }}
               >
                 <strong

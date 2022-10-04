@@ -17,7 +17,11 @@ const Band = (props) => {
               key={group.imageId}
               className={styles.cardWrap}
               style={{
-                backgroundImage: `url(images/band/${group.imageId}.jpg)`,
+                backgroundImage: `url(images/band/${
+                  group.imageId_naslovna
+                    ? group.imageId_naslovna
+                    : group.imageId
+                }.jpg)`,
               }}
             >
               <strong

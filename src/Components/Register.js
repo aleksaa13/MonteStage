@@ -38,8 +38,8 @@ const Register = (props) => {
     Psytrance: false,
     House: false,
     EDM: false,
-    Etno: false,
-    Klasicna: false,
+    Izvorna: false,
+    Klasična: false,
     Evergreen: false,
     HipHop: false,
   });

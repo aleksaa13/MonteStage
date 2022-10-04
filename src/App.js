@@ -45,7 +45,7 @@ function App() {
     "EDM",
     "Tehno",
     "Folk",
-    "Etno/Izvorna",
+    "Izvorna",
     "Klasična",
     "Evergreen",
     "HipHop",

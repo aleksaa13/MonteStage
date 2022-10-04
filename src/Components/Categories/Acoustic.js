@@ -18,7 +18,11 @@ const Acoustic = (props) => {
               key={group.imageId}
               className={styles.cardWrap}
               style={{
-                backgroundImage: `url(images/acoustic/${group.imageId}.jpg)`,
+                backgroundImage: `url(images/acoustic/${
+                  group.imageId_naslovna
+                    ? group.imageId_naslovna
+                    : group.imageId
+                }.jpg)`,
               }}
             >
               <strong

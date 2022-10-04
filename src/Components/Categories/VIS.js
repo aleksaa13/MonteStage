@@ -17,7 +17,11 @@ const VIS = (props) => {
               key={group.imageId}
               className={styles.cardWrap}
               style={{
-                backgroundImage: `url(images/dj/${group.imageId}.jpg)`,
+                backgroundImage: `url(images/vis/${
+                  group.imageId_naslovna
+                    ? group.imageId_naslovna
+                    : group.imageId
+                }.jpg)`,
               }}
             >
               <strong

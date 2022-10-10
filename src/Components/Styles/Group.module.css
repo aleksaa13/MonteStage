@@ -1,15 +1,18 @@
 .groupWrapper{
     text-align: center;
-}
+    /* background-image: url("/public/images/aleksa.jpg"); */
+    padding: 0 15vw;
+    /* background-image: url("/public/images/aleksa.jpg");
+    background-size:contain; */
+} 
 
 .imageContainer{
-    margin:auto;
     width:70vw;
-    height:200px;
+    
 }
 
 .imageContainer img{
-    height:100%;
+    height:auto;
     width:100%;
 }
 
@@ -52,9 +55,16 @@
 .wrapper{
     border: 1px solid #48473B;
     position:relative;
-    width:70%;
-    margin:20px auto;
+    width:100%;
+    margin:15px auto;
+    background-color:#ECEBDC;
 }
+.pushImg{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    
+        }
 
 .wrapperText{
     position:absolute;
@@ -95,6 +105,7 @@
     .imageContainer{
         width:35%;
         margin-top:50px;
+        margin-bottom:20px;
     }
 
     .pushImgOther{

@@ -2,10 +2,13 @@
     text-align: center;
     color:black;
     background-color:#ECEBDC;
+    /* background-image: url("/public/images/aleksa.jpg"); */
     max-width:100vw;
     overflow-x:hidden;
     min-height:100vh;
     overflow-y:hidden;
     font-family:Sansita;
   }
+
+
 

@@ -22,7 +22,9 @@
 }
 
 .filterWrapper{
-    min-height:100vw;
+    min-height:100vh;
+    /* background-image: url("/public/images/aleksa.jpg");
+    background-size:contain; */
 }
 
 /* ACCORDION */

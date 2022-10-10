@@ -9,6 +9,8 @@
     align-items:center;
     margin-bottom:20px;
     justify-content:flex-start;
+    /* background-image: url("/public/images/aleksa.jpg");
+    background-size:contain; */
 }
 
 .card{

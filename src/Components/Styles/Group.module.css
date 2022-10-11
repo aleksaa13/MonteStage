@@ -104,8 +104,9 @@
 
     .imageContainer{
         width:35%;
+        margin-right:40px;
+        align-self: flex-start;
         margin-top:50px;
-        margin-bottom:20px;
     }
 
     .pushImgOther{
@@ -114,7 +115,7 @@ width:65%;
 
     .pushImg{
         display:flex;
-        flex-direction:row;
+        flex-direction:row;        
     }
 
     .videos{

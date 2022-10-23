@@ -4,6 +4,13 @@
     display:none;
 }
 
+.notify{
+  font-style: italic;
+  font-size:8px;
+  color:darkgrey;
+  margin-bottom:20px;
+}
+
 .error{
   font-size:10px;
     color:red;

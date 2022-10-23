@@ -254,6 +254,11 @@ const Register = (props) => {
           );
         })}
 
+        <span className={styles.notify}>
+          Ukoliko nemate snimke na Youtube-u, unesite link sa bilo koje druge
+          paltforme ili nam posaljite video mejlom
+        </span>
+
         <div className={styles.fileInputContainer}>
           <label className={styles.buttonLabel} htmlFor="slika">
             Vaša slika
